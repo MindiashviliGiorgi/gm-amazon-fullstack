@@ -8,6 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AdminPanelPageComponent } from './admin-panel-page/admin-panel-page.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     HomePageComponent,
-    AdminPanelPageComponent
+    AdminPanelPageComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
