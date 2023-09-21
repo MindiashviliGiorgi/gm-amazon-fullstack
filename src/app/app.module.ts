@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { FirebaseAppModule } from '@angular/fire/app';
+import { FirestoreModule } from '@angular/fire/firestore';
+import { AuthService } from './shared/auth.service';
 
 
 @NgModule({
@@ -29,7 +32,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

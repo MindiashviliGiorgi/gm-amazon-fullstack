@@ -6,13 +6,13 @@
       </div>
       <div class="container-form">
         <form>
-          <input type="email" placeholder="Email">
+          <input type="email" placeholder="Email" name="email" [(ngModel)]="email">
           <div class="decore"></div>
-          <input type="password" placeholder="Password">
+          <input type="password" placeholder="Password" name="password" [(ngModel)]="password">
           <div class="decore"></div>
           <div class="btns">
             <button [routerLink]="'/login'">LOGIN</button>
-            <button [routerLink]="'/register'">REGISTER</button>
+            <button (click)="registerx()">REGISTER</button>
           </div>
         </form>
       </div>
