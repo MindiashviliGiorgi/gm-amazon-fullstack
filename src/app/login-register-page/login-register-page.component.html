@@ -1,0 +1,31 @@
+<div class="login-main">
+  <div class="container">
+    <div class="container-title">
+      <h3 (click)="loginForm = true;">Login</h3>
+      <h3 (click)="loginForm = false;">Register</h3>
+    </div>
+    <div class="container-body">
+      <div class="container-login" *ngIf="loginForm">
+        <app-login></app-login>
+      </div>
+      <div class="container-register" *ngIf="!loginForm">
+        <app-register></app-register>
+      </div>
+    </div>
+  </div>
+  <div class="decore-1">
+    <img [src]="'/assets/images/Group 4.png'"/>
+  </div>
+  <div class="decore-2">
+    <img [src]="'/assets/images/Group 2.png'"/>
+  </div>
+  <div class="decore-circle">
+    <img [src]="'/assets/images/Ellipse 1.png'"/>
+  </div>
+  <div class="decore-circle-2">
+    <img [src]="'/assets/images/Ellipse 2.png'"/>
+  </div>
+  <div class="decore-circle-3">
+    <img [src]="'/assets/images/Ellipse 3.png'"/>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="login-app">
+  <form (ngSubmit)="submit()" #myForm="ngForm">
+    <input type="email" placeholder="Email"
+    [(ngModel)]="form.email" name="email" #email="ngModel" required
+    >
+    <div class="decore"></div>
+    <input type="password" placeholder="Password">
+    <div class="decore"></div>
+    <input type="password" placeholder="Confirm Password"
+    >
+    <div class="decore"></div>
+    <div class="btn">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>

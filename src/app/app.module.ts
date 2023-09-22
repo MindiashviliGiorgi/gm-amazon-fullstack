@@ -8,12 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AdminPanelPageComponent } from './admin-panel-page/admin-panel-page.component';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './component/login/login.component';
-import { RegisterComponent } from './component/register/register.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { FirebaseAppModule } from '@angular/fire/app';
-import { FirestoreModule } from '@angular/fire/firestore';
-import { AuthService } from './shared/auth.service';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginRegisterPageComponent } from './login-register-page/login-register-page.component';
 
 
 @NgModule({
@@ -25,14 +22,14 @@ import { AuthService } from './shared/auth.service';
     AdminPanelPageComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    LoginRegisterPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
