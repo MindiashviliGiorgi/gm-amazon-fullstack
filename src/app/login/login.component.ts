@@ -19,7 +19,7 @@ export class LoginComponent {
   ngOnInit():void {}
 
   submit(){
-
+    this.authService.login(this.form)
   }
 
 }

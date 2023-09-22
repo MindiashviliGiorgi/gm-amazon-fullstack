@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RegisterForm } from '../auth/auth';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,13 +15,13 @@ export class RegisterComponent {
     confirm_password : '',
   }
 
-  constructor(){}
+  constructor(private authService : AuthService){}
 
   ngOnInit():void {}
 
   submit(){
-    
-  }
+    this.authService.register(this.form)
+  };
 
 
 }
