@@ -9,8 +9,12 @@ import { LoginRegisterPageComponent } from './login-register-page/login-register
 const routes: Routes = [
   {
     path : '',
-    component : LoginRegisterPageComponent
+    component : AdminPanelPageComponent
   },
+  {
+    path : 'loginRegister',
+    component : LoginRegisterPageComponent
+  }
 ];
 
 @NgModule({

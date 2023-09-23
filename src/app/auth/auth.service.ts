@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { LoginForm, RegisterForm } from './auth';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit():void {}
 
@@ -17,7 +18,7 @@ export class AuthService {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, form.email, form.password)
     .then((useCredential) => {
-      alert('Login Done')
+      this.router.navigate(['/'])
     })
     .catch((error) => {
       const errorCode = error.code
