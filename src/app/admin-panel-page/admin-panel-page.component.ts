@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-admin-panel-page',
@@ -7,10 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AdminPanelPageComponent {
 
-  constructor(){}
+  constructor(private authService : AuthService){}
 
   ngOnInit():void {
     
   }
+
+  userLogout(){
+    this.authService.logout()
+  }  
 
 }
