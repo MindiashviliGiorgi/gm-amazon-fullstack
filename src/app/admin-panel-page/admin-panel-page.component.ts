@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { ProductForm } from '../auth/auth';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs';
+
+import { NgForm } from '@angular/forms';
+import { ProductsService } from '../auth/products.service';
 
 @Component({
   selector: 'app-admin-panel-page',
@@ -12,20 +14,15 @@ import { map } from 'rxjs';
 export class AdminPanelPageComponent {
 
   allProducts : ProductForm[] = [];
+  isFetching : boolean = false;
+  windowVariable : boolean = true;
+  editMode : boolean = false;
 
-  formWindow : boolean = false;
+  @ViewChild('productsForm') nForm : NgForm;
 
   productList : ProductForm[] = [];
 
-  form : ProductForm = {
-    id : '',
-    name : '',
-    serialCode : '',
-    category : '',
-    price : '',
-  }
-
-  constructor(private authService : AuthService, private http : HttpClient){}
+  constructor(private authService : AuthService, private http : HttpClient, private productService : ProductsService){}
 
   ngOnInit():void {
     this.fetchProduct();
@@ -39,31 +36,36 @@ export class AdminPanelPageComponent {
     this.authService.logout()
   }  
 
+  onDeleteProduct(id : string){
+    this.productService.deleteProduct(id)
+  }
+
+  onDeleteAllProducts(){
+    this.productService.deleteAllProducts();
+  }
+
   onProductCreate(products : ProductForm){
-    const headers = new HttpHeaders({'myHeader' : 'GM'});
-    this.http.post<{name : string}>(
-      'https://gm-97a5f-default-rtdb.europe-west1.firebasedatabase.app/products.json', products,
-    {headers : headers })
-    .subscribe((res) => {
-      console.log(res)
-    })
+    this.productService.createProduct(products)
   }
 
   private fetchProduct(){
-    this.http.get('https://gm-97a5f-default-rtdb.europe-west1.firebasedatabase.app/products.json')
-    .pipe(map((res) => {
-      const products = [];
-      for(const key in res){
-        if(res.hasOwnProperty(key)){
-          products.push({...res[key], id: key})
-        }
-      }
-      return products;
-    }))
-    .subscribe((products) => {
-      console.log(products)
+    this.isFetching = true;
+    this.productService.fetchProduct().subscribe((products) => {
       this.allProducts = products;
+      this.isFetching = false;
     })
+  }
+
+  onEditClicked(id : string){
+    this.windowVariable = true;
+    let currentProduct = this.allProducts.find((p) => {return p.id === id});
+    this.nForm.setValue({
+      name : currentProduct.name,
+      serialCode : currentProduct.serialCode,
+      category : currentProduct.category,
+      price : currentProduct.price,
+    });
+    this.editMode = true;
   }
 
 }

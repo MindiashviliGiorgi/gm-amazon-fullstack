@@ -10,47 +10,10 @@
       </ul>
     </div>
   </div>
-  <div class="section">
-    <div class="section-header">
-      <div class="section-header-left">
-        <h3>Order Catalogue</h3>
-        <p>New Items</p>
-      </div>
-      <div class="section-header-right">
-        <div class="search">
-          <img [src]="'/assets/images/search-icon.png'"/>
-          <input type="search" placeholder="Search">
-        </div>
-        <div class="btns">
-          <button>Fetch New Product</button>
-          <button (click)="formWindow = true;">Add New Product</button>
-        </div>
-      </div>
-    </div>
-    <div class="section-body">
-      <div class="body-title">
-        <p>#</p>
-        <p>Product</p>
-        <p>Serial Code</p>
-        <p>Category</p>
-        <p>Price</p>
-        <p>Actions</p>
-      </div>
-      <div class="body-list">
-        <ul  *ngFor="let prod of allProducts; index as i" >
-          <li><p>{{ i + 1 }}</p></li>
-          <li><p>{{ prod.name }}</p></li>
-          <li><p>{{ prod.serialCode }}</p></li>
-          <li><p>{{ prod.category }}</p></li>
-          <li><p>{{ prod.price }}</p></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="form-window" *ngIf="formWindow">
+  <div class="form-window">
     <div class="form-container">
       <div class="fc-title">
-        <h1>Product</h1>
+        <h1>Add New Product</h1>
       </div>
       <div class="fc-body">
         <form #productsForm="ngForm" (ngSubmit)="onProductCreate(productsForm.value)">
@@ -64,14 +27,60 @@
           <input type="text" placeholder="Category"
           name="category" ngModel>
           <!-- price -->
-          <input type="text" placeholder="Price"
+          <input type="number" placeholder="Price"
           name="price" ngModel>
           <!-- buttons -->
           <div class="btnss">
-            <button (click)="formWindow = false;">Cancel</button>
-            <button type="submit">Submit</button>
+            <input type="submit" value="{{editMode ? 'Update Product' : 'Add Product'}}">
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-header-left">
+        <h3>Order Catalogue</h3>
+        <p>New Items</p>
+      </div>
+      <div class="section-header-right">
+        <div class="search">
+          <img [src]="'/assets/images/search-icon.png'"/>
+          <input type="search" placeholder="Search">
+        </div>
+        <div class="btns">
+          <button (click)="onDeleteAllProducts()">Clear Products</button>
+          <button (click)="onProductsFetch()">Fetch Products</button>
+        </div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="body-title">
+        <p>#</p>
+        <p>Product</p>
+        <p>Serial Code</p>
+        <p>Category</p>
+        <p>Price</p>
+        <p>Actions</p>
+      </div>
+      <div class="body-list">
+        <ul *ngIf="allProducts.length < 1 && !isFetching">
+          <li>No Products Avaiable!</li>
+        </ul>
+        <ul *ngIf="isFetching">
+          <li>Loading...</li>
+        </ul>
+        <ul  *ngFor="let prod of allProducts; index as i" >
+          <li><p>{{ i + 1 }}</p></li>
+          <li><p>{{ prod.name }}</p></li>
+          <li><p>{{ prod.serialCode }}</p></li>
+          <li><p>{{ prod.category }}</p></li>
+          <li><p>{{ prod.price }}$</p></li>
+          <li><div class="btns">
+            <button (click)="onEditClicked(prod.id)">Edit</button>
+            <button (click)="onDeleteProduct(prod.id)">Delete</button>
+          </div></li>
+        </ul>
       </div>
     </div>
   </div>
