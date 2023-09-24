@@ -23,7 +23,7 @@
         </div>
         <div class="btns">
           <button>Fetch New Product</button>
-          <button>Add New Product</button>
+          <button (click)="formWindow = true;">Add New Product</button>
         </div>
       </div>
     </div>
@@ -70,6 +70,34 @@
             <button>Remove</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-window" *ngIf="formWindow">
+    <div class="form-container">
+      <div class="fc-title">
+        <h1>Product</h1>
+      </div>
+      <div class="fc-body">
+        <form #productsForm="ngForm" (ngSubmit)="onProductCreate(productsForm.value)">
+          <!-- title -->
+          <input type="title" placeholder="Product Title"
+          name="title" ngModel>
+          <!-- serial code -->
+          <input type="text" placeholder="Serial Code"
+          name="scode" ngModel>
+          <!-- category -->
+          <input type="category" placeholder="Category"
+          name="category" ngModel>
+          <!-- price -->
+          <input type="price" placeholder="Price"
+          name="price" ngModel>
+          <!-- buttons -->
+          <div class="btnss">
+            <button (click)="formWindow = false;">Cancel</button>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -7,3 +7,10 @@ export interface RegisterForm {
   password : string;
   confirm_password : string;
 }
+export interface ProductForm {
+  id : string;
+  name : string;
+  serialCode : string;
+  category : string;
+  price : string;
+}
