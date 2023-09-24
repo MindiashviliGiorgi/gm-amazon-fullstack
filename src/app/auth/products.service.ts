@@ -17,12 +17,6 @@ export class ProductsService {
     {headers : headers })
     .subscribe((res) => {
     })
-    // this.nForm.setValue({
-    //   name : '',
-    //   serialCode : '',
-    //   category : '',
-    //   price : '',
-    // })
     alert('Tap Fetch Products Button');
   }
 
@@ -51,4 +45,8 @@ export class ProductsService {
     alert('Tap Fetch Products Button');
   }
 
+  updateProduct(id : string, value : ProductForm){
+    this.http.put('https://gm-97a5f-default-rtdb.europe-west1.firebasedatabase.app/products/' + id + '.json', value)
+    .subscribe();
+  }
 }

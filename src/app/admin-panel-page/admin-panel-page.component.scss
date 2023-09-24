@@ -257,7 +257,8 @@
             align-items: center;
             flex-direction: row;
             column-gap: 30px;
-            input {
+            input,
+            button {
               font-size: 15px;
               padding: 5px 14px;
               outline: none;

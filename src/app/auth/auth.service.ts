@@ -21,7 +21,7 @@ export class AuthService {
     signInWithEmailAndPassword(auth, form.email, form.password)
     .then((useCredential) => {
       this.isAuthenticated = true;
-      this.router.navigate(['/']);
+      this.router.navigate(['/panel']);
     })
     .catch((error) => {
       const errorCode = error.code
@@ -41,6 +41,7 @@ export class AuthService {
     createUserWithEmailAndPassword(auth, form.email, form.password)
     .then((userCredential) => {
       this.registerDone = true;
+      this.router.navigate(['/panel']);
     })
     .catch((error) => {
       alert('Something Wrong')

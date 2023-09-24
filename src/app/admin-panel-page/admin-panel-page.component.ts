@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, ViewChild } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { ProductForm } from '../auth/auth';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { NgForm } from '@angular/forms';
 import { ProductsService } from '../auth/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel-page',
@@ -17,12 +18,13 @@ export class AdminPanelPageComponent {
   isFetching : boolean = false;
   windowVariable : boolean = true;
   editMode : boolean = false;
+  currentProductId : string;
 
   @ViewChild('productsForm') nForm : NgForm;
 
   productList : ProductForm[] = [];
 
-  constructor(private authService : AuthService, private http : HttpClient, private productService : ProductsService){}
+  constructor(private authService : AuthService, private http : HttpClient, private productService : ProductsService, private router : Router){}
 
   ngOnInit():void {
     this.fetchProduct();
@@ -34,6 +36,7 @@ export class AdminPanelPageComponent {
 
   userLogout(){
     this.authService.logout()
+    this.router.navigate(['/']);
   }  
 
   onDeleteProduct(id : string){
@@ -45,7 +48,26 @@ export class AdminPanelPageComponent {
   }
 
   onProductCreate(products : ProductForm){
-    this.productService.createProduct(products)
+    if(!this.editMode){
+      this.productService.createProduct(products)
+    }else {
+      this.productService.updateProduct(this.currentProductId, products);
+      this.nForm.setValue({
+        name : '',
+        serialCode : '',
+        category : '',
+        price : '',
+      });
+    }
+  }
+
+  clearForm(){
+    this.nForm.setValue({
+      name : '',
+      serialCode : '',
+      category : '',
+      price : '',
+    });
   }
 
   private fetchProduct(){
@@ -57,6 +79,7 @@ export class AdminPanelPageComponent {
   }
 
   onEditClicked(id : string){
+    this.currentProductId = id;
     this.windowVariable = true;
     let currentProduct = this.allProducts.find((p) => {return p.id === id});
     this.nForm.setValue({
@@ -67,5 +90,12 @@ export class AdminPanelPageComponent {
     });
     this.editMode = true;
   }
+
+  searchValue : string = '';
+  searchTextChange : EventEmitter<string> = new EventEmitter<string>();
+  searchItem(){
+    this.searchTextChange.emit(this.searchValue)
+  }
+
 
 }

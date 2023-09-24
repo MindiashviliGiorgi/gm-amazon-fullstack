@@ -9,11 +9,15 @@ import { LoginRegisterPageComponent } from './login-register-page/login-register
 const routes: Routes = [
   {
     path : '',
+    component : LoginRegisterPageComponent
+  },
+  {
+    path : 'panel',
     component : AdminPanelPageComponent
   },
   {
-    path : 'loginRegister',
-    component : LoginRegisterPageComponent
+    path : 'home',
+    component : HomePageComponent
   }
 ];
 
