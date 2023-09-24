@@ -37,39 +37,13 @@
         <p>Actions</p>
       </div>
       <div class="body-list">
-        <div class="decore"></div>
-        <div class="item">
-          <p>01</p>
-          <p>Iphone 14</p>
-          <p>#1213f12</p>
-          <p>Phone</p>
-          <p>1400$</p>
-          <div class="btns">
-            <button>Remove</button>
-          </div>
-        </div>
-
-        <div class="item">
-          <p>01</p>
-          <p>Iphone 14</p>
-          <p>#1213f12</p>
-          <p>Phone</p>
-          <p>1400$</p>
-          <div class="btns">
-            <button>Remove</button>
-          </div>
-        </div>
-
-        <div class="item">
-          <p>01</p>
-          <p>Iphone 14</p>
-          <p>#1213f12</p>
-          <p>Phone</p>
-          <p>1400$</p>
-          <div class="btns">
-            <button>Remove</button>
-          </div>
-        </div>
+        <ul  *ngFor="let prod of allProducts; index as i" >
+          <li><p>{{ i + 1 }}</p></li>
+          <li><p>{{ prod.name }}</p></li>
+          <li><p>{{ prod.serialCode }}</p></li>
+          <li><p>{{ prod.category }}</p></li>
+          <li><p>{{ prod.price }}</p></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -81,16 +55,16 @@
       <div class="fc-body">
         <form #productsForm="ngForm" (ngSubmit)="onProductCreate(productsForm.value)">
           <!-- title -->
-          <input type="title" placeholder="Product Title"
-          name="title" ngModel>
+          <input type="text" placeholder="Product Title"
+          name="name" ngModel>
           <!-- serial code -->
           <input type="text" placeholder="Serial Code"
-          name="scode" ngModel>
+          name="serialCode" ngModel>
           <!-- category -->
-          <input type="category" placeholder="Category"
+          <input type="text" placeholder="Category"
           name="category" ngModel>
           <!-- price -->
-          <input type="price" placeholder="Price"
+          <input type="text" placeholder="Price"
           name="price" ngModel>
           <!-- buttons -->
           <div class="btnss">
