@@ -28,11 +28,29 @@
         column-gap: 100px;
         li {
           list-style: none;
-          p {
+          P {
             color: #fff;
-            font-weight: 100;
             font-size: 20px;
+            font-weight: 100;
+            letter-spacing: 0.6px;
+            position: relative;
+            transition: 0.4s;
             cursor: pointer;
+            &::after {
+              position: absolute;
+              content: '';
+              bottom: -4px;
+              left: 0;
+              right: 0;
+              width: 0%;
+              height: 2px;
+              border-radius: 2px;
+              background-color: #fff;
+            }
+            &:hover::after {
+              width: 100%;
+              transition: 0.4s;
+            }
           }
           button {
             font-size: 20px;

@@ -14,6 +14,9 @@ import { RegisterComponent } from './register/register.component';
 import { LoginRegisterPageComponent } from './login-register-page/login-register-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsListComponent } from './products-list/products-list.component';
+import { AboutPageComponent } from './about-page/about-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { ProductsListComponent } from './products-list/products-list.component';
     LoginComponent,
     RegisterComponent,
     LoginRegisterPageComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    AboutPageComponent,
+    ContactPageComponent,
+
   ],
   imports: [
     BrowserModule,
