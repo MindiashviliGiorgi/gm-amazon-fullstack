@@ -1,6 +1,6 @@
 <div class="header-main">
   <div class="header-left">
-    <div class="logo">
+    <div class="logo" [routerLink]="'/home'" style="cursor: pointer;">
       <img src="/assets/images/logo.png">
       <h2>GM InnovateTech</h2>
     </div>
@@ -8,8 +8,8 @@
   <div class="header-right">
     <ul>
       <li><p [routerLink]="'/panel'">Admin Panel</p></li>
-      <li><p>About</p></li>
-      <li><p>Contact</p></li>
+      <li><p [routerLink]="'/about'">About</p></li>
+      <li><p [routerLink]="'/contact'">Contact</p></li>
       <li><p (click)="userLogout()">Logout</p></li>
     </ul>
   </div>

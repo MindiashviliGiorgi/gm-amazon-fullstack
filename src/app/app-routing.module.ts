@@ -5,6 +5,8 @@ import { AdminPanelPageComponent } from './admin-panel-page/admin-panel-page.com
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginRegisterPageComponent } from './login-register-page/login-register-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,14 @@ const routes: Routes = [
   {
     path : 'home',
     component : HomePageComponent
+  },
+  {
+    path : 'about',
+    component : AboutPageComponent
+  },
+  {
+    path : 'contact',
+    component : ContactPageComponent
   }
 ];
 

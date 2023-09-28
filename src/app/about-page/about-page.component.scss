@@ -1,0 +1,36 @@
+.about-page-main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  padding: 50px 150px;
+  .container {
+    width: 750px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    .title {
+      width: 100%;
+      text-align: center;
+      h1 {
+        color: #fff;
+        font-size: 40px;
+        font-weight: 100;
+        letter-spacing: 0.8px;
+      }
+    }
+    .about {
+      width: 100%;
+      height: auto;
+      p {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 100;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
