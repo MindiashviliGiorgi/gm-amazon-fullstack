@@ -13,6 +13,8 @@ export class HeaderComponent {
 
   ngOnInit():void {}
 
+  menu : boolean = false;
+
   userLogout(){
     this.authService.logout()
     this.router.navigate(['/']);

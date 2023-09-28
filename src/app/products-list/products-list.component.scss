@@ -88,3 +88,17 @@
     }
   }
 }
+
+@media(max-width : 889px){
+  .products-list-main {
+    padding: 0px 70px 70px 70px;
+    .decoration2 {
+      left: 10px;
+      bottom: 10px;
+      display: none;
+    }
+    .decoration {
+      display: none;
+    }
+  }
+}

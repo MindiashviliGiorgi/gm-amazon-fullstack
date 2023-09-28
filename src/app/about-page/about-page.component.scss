@@ -34,3 +34,14 @@
     }
   }
 }
+
+@media (max-width : 591px){
+  .about-page-main {
+    padding: 50px 70px;
+  }
+}
+@media (max-width : 423px){
+  .about-page-main {
+    padding: 50px 30px;
+  }
+}

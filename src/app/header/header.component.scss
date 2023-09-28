@@ -27,6 +27,14 @@
     }
   }
   .header-right {
+    .burger-menu {
+      display: none;
+      img {
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
+      }
+    }
     ul {
       display: flex;
       flex-direction: row;
@@ -56,6 +64,140 @@
           &:hover::after {
             width: 100%;
             transition: 0.4s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu {
+  z-index: 90;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    inset: 0;
+    opacity: 0.9;
+    background-color: #010911;
+    z-index: 95;
+  }
+  .menu-links {
+    position: relative;
+    z-index: 96;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    ul {
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
+      position: relative;
+      span {
+        position: absolute;
+        right: 50px;
+        top: -150px;
+        z-index: 100;
+        img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          transform: rotate(90deg);
+        }
+        &:active {
+            color: #4194c1;
+            border-color: #4194c1;
+          }
+        }
+        li {
+          list-style: none;
+          color: #fff;
+          font-size: 30px;
+          &:hover {
+              color: #4194c1;
+          }
+        }
+    }
+  }
+}
+
+@media (max-width : 1246px) {
+  .header-main {
+    padding: 10px 50px;
+  }
+}
+@media (max-width : 1091px) {
+  .header-main {
+    padding: 10px 50px;
+    .header-right {
+      ul {
+        column-gap: 40px;
+      }
+    }
+  }
+}
+@media (max-width : 870px) {
+  .header-main {
+    padding: 10px 50px;
+    .header-right {
+      ul {
+        column-gap: 30px;
+        li {
+          p {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width : 800px) {
+  .header-main {
+    padding: 10px 50px;
+    .header-right {
+      .burger-menu {
+        display: flex;
+      }
+      ul {
+        column-gap: 30px;
+        display: none;
+        li {
+          p {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width : 500px) {
+  .header-main {
+    padding: 10px 30px;
+    .header-left {
+      .logo {
+        h2 {
+          font-size: 20px;
+        }
+      }
+    }
+    .header-right {
+      .burger-menu {
+        display: flex;
+      }
+      ul {
+        column-gap: 30px;
+        display: none;
+        li {
+          p {
+            font-size: 17px;
           }
         }
       }

@@ -6,10 +6,26 @@
     </div>
   </div>
   <div class="header-right">
+    <div class="burger-menu">
+      <img (click)="menu = true;" [src]="'/assets/images/bb.png'">
+    </div>
     <ul>
       <li><p [routerLink]="'/panel'">Admin Panel</p></li>
       <li><p [routerLink]="'/about'">About</p></li>
       <li><p [routerLink]="'/contact'">Contact</p></li>
+      <li><p (click)="userLogout()">Logout</p></li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="menu" class="menu">
+  <div class="menu-links">
+    <ul>
+      <span (click)="menu = false;">
+        <img [src]="'/assets/images/close.png'">
+      </span>
+      <li [routerLink]="'/panel'" (click)="menu = false">Admin Panel</li>
+      <li [routerLink]="'/about'" (click)="menu = false">About</li>
+      <li [routerLink]="'/contact'" (click)="menu = false">Contact</li>
       <li><p (click)="userLogout()">Logout</p></li>
     </ul>
   </div>
