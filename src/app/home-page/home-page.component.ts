@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ProductForm } from '../auth/auth';
 import { ProductsService } from '../auth/products.service';
 
@@ -9,22 +9,7 @@ import { ProductsService } from '../auth/products.service';
 })
 export class HomePageComponent {
 
-  constructor(private productService : ProductsService){}
+  currentContainer : boolean = true;
 
-  ngOnInit():void {
-    this.fetchProduct();
-  }
-
-  allProducts : ProductForm[] = [];
-
-  onProductsFetch(){
-    this.fetchProduct();
-  }
-
-  private fetchProduct(){
-    this.productService.fetchProduct().subscribe((products) => {
-      this.allProducts = products;
-    })
-  }
 
 }

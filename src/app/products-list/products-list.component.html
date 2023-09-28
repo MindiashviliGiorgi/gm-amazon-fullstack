@@ -1,0 +1,29 @@
+<div class="products-list-main">
+  <div class="decoration">
+    <img src="/assets/images/icon_01.png">
+  </div>
+  <div class="decoration2">
+    <img src="/assets/images/icon_10.png">
+  </div>
+
+  <div class="products-title">
+    <h1>Products List</h1>
+  </div>
+  <div class="products-list">
+    <ng-container *ngFor="let prod of allProducts">
+      <div class="container">
+        <div class="image">
+          <img src="/assets/images/iiphone.jpg">
+        </div>
+        <div class="title-price">
+          <div class="title">
+            <h3>{{ prod.name }}</h3>
+          </div>
+          <div class="price">
+            <p>{{ prod.price }}$</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,19 +1,50 @@
+<app-header></app-header>
 <div class="home-page-main">
-  
+  <div class="section" *ngIf="currentContainer">
+    <div class="container">
+      <div class="title">
+        <h1>Revolutionizing Tech: iPhone 15 Unveiled</h1>
+      </div>
+      <div class="about">
+        <p>
+          The iPhone 15 marks a groundbreaking leap in mobile technology, <br>
+          featuring cutting-edge innovations that redefine the smartphone <br>
+          experience. With enhanced performance, stunning design, and groundbreaking <br>
+          features, it's set to reshape the industry landscape. Stay tuned <br>
+          for a glimpse into the future of mobile connectivity.
+        </p>
+      </div>
+      <div class="btn">
+        <button>Buy now</button>
+      </div>
+    </div>
+  </div>
+  <div class="section2" *ngIf="!currentContainer" style="justify-content: left;">
+    <div class="container">
+      <div class="title">
+        <h1>Introducing the New MacBook</h1>
+      </div>
+      <div class="about">
+        <p>
+          The latest MacBook is a masterpiece of innovation and design. With powerful <br>
+          performance, stunning Retina displays, and exceptional portability, it sets a new standard for <br>
+          modern laptops. Experience the future of computing with the new MacBook.
+        </p>
+      </div>
+      <div class="btn">
+        <button>Buy now</button>
+      </div>
+    </div>
+  </div>
+  <div class="left-btn">
+    <button *ngIf="!currentContainer" (click)="currentContainer = true;">
+      <img src="/assets/images/arrow.png">
+    </button>
+  </div>
+  <div class="right-btn">
+    <button *ngIf="currentContainer" (click)="currentContainer = false;">
+      <img src="/assets/images/arrow.png" style="transform: rotate(180deg);">
+    </button>
+  </div>
 </div>
-
-
-
-
-
-<!-- 
-    <ng-container *ngFor="let prod of allProducts; index as i">
-    <ul>
-      <li><p>{{ i + 1 }}</p></li>
-      <li><p>{{ prod.name }}</p></li>
-      <li><p>{{ prod.serialCode }}</p></li>
-      <li><p>{{ prod.category }}</p></li>
-      <li><p>{{ prod.price }}$</p></li>
-    </ul>
-  </ng-container>
- -->
+<app-products-list></app-products-list>

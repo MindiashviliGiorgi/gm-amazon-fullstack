@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginRegisterPageComponent } from './login-register-page/login-register-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsListComponent } from './products-list/products-list.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminPanelPageComponent,
     LoginComponent,
     RegisterComponent,
-    LoginRegisterPageComponent
+    LoginRegisterPageComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,
