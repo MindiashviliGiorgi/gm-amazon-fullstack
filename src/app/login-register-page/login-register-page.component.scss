@@ -101,3 +101,24 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width : 520px){
+  .login-main {
+    .container {
+      width: 370px;
+      .container-title {
+        padding: 20px 50px;
+        h3 {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+@media (max-width : 400px){
+  .login-main {
+    .container {
+      width: 350px;
+    }
+  }
+}

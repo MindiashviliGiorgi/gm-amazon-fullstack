@@ -58,10 +58,10 @@
     </div>
     <div class="section-body">
       <div class="body-title">
-        <p>#</p>
+        <p class="firstp">#</p>
         <p>Product</p>
-        <p>Serial Code</p>
-        <p>Category</p>
+        <p class="sp">Serial Code</p>
+        <p class="cap">Category</p>
         <p>Price</p>
         <p>Actions</p>
       </div>
@@ -75,10 +75,10 @@
         <ng-container  *ngFor="let prod of allProducts; index as i">
           <ng-container  *ngIf="searchValue === '' || prod.name.toLowerCase().includes(searchValue)">
             <ul>
-              <li><p>{{ i + 1 }}</p></li>
+              <li class="firstli"><p>{{ i + 1 }}</p></li>
               <li><p>{{ prod.name }}</p></li>
-              <li><p>{{ prod.serialCode }}</p></li>
-              <li><p>{{ prod.category }}</p></li>
+              <li  class="sli"><p>{{ prod.serialCode }}</p></li>
+              <li class="cali"><p>{{ prod.category }}</p></li>
               <li><p>{{ prod.price }}$</p></li>
               <li>
                 <div class="btns">

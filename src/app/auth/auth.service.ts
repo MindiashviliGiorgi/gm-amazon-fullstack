@@ -44,7 +44,7 @@ export class AuthService {
       this.router.navigate(['/panel']);
     })
     .catch((error) => {
-      alert('Something Wrong')
+      alert(error)
     })
   }
 
@@ -54,7 +54,7 @@ export class AuthService {
       this.router.navigate(['/loginRegister'])
       alert('You sign out')
     }).catch((error) => {
-
+      alert(error)
     })
   }
 
